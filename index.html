@@ -4,7 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Scadenze Pro Mobile</title>
-    <link rel="stylesheet" href="style.css?v=7">
+
+    <!-- Icona per iPhone / iPad -->
+    <link rel="apple-touch-icon" sizes="180x180" href="icon.png">
+    <!-- Icona per Android e Browser -->
+    <link rel="icon" type="image/png" sizes="32x32" href="icon.png">
+    
+    <!-- Colore della barra di stato dello smartphone -->
+    <meta name="theme-color" content="#f4ebd9">
+
+    <link rel="stylesheet" href="style.css?v=8">
 </head>
 <body>
 
@@ -222,13 +231,11 @@
         });
     }
 
-    /* Esportazione JSON */
     function esportaDati() {
         const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(scadenze));
         scaricaFile(dataStr, "scadenze_backup.json");
     }
 
-    /* Importazione JSON da Drive o file locale */
     function caricaFileBackup(event) {
         const file = event.target.files[0];
         if (!file) return;
@@ -252,7 +259,6 @@
         reader.readAsText(file);
     }
 
-    /* Esportazione CSV */
     function esportaCSV() {
         if (scadenze.length === 0) {
             alert("Nessun dato da esportare!");
